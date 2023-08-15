@@ -1,5 +1,7 @@
 //import 'dart:convert';
 
+//import 'dart:io';
+
 import 'package:cobaflutterpfm/component/utils.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,17 +38,16 @@ class ApiBaseHelper {
 
   static dynamic requestInterceptor(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    // Get your JWT token
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("token");
-    if (token != null) {
-      print("TOKEN requestinterceptor:$token");
-      options.headers.addAll({
-        "Authorization": "Bearer $token",
-        "Accept": "application/json",
-        "headerApiKey": "PFM~API/"
-      });
-    }
+
+    print("TOKEN requestinterceptor: $token");
+    options.headers.addAll({
+      "Authorization": 'Bearer $token',
+      "Accept": "application/json",
+      "headerApiKey": "PFM~API/"
+    });
+
     return handler.next(options);
   }
 
@@ -55,7 +56,7 @@ class ApiBaseHelper {
 
   Future<Response?> getHTTP(String url) async {
     try {
-      Response response = await baseAPI.get(url);
+      Response response = await baseAPI.post(url);
       return response;
     } on DioException catch (e) {
       // Handle error
