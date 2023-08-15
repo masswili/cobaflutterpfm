@@ -65,14 +65,14 @@ ButtonTheme raisedButton(
 
 Widget _buildLeadingIcon(Widget leadingIcon) {
   return Row(
-    children: <Widget>[leadingIcon, SizedBox(width: 10)],
+    children: <Widget>[leadingIcon, const SizedBox(width: 10)],
   );
 }
 
 Widget _buildTrailingIcon(Widget trailingIcon) {
   return Row(
     children: <Widget>[
-      SizedBox(width: 10),
+      const SizedBox(width: 10),
       trailingIcon,
     ],
   );

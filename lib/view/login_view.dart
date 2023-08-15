@@ -8,8 +8,10 @@ import '../component/api_base_helper.dart';
 import '../constants.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -71,13 +73,13 @@ class _LoginPageState extends State<LoginPage> {
                         height: 100.0,
                         width: 200.0,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       const Text("Personal Finance Management",
                           style: TextStyle(
                               fontFamily: 'NeoSansBold',
                               fontSize: 20,
                               color: Colors.orange)),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       SizedBox(height: 0.05 * height),
                       Stack(
                         alignment: Alignment.center,
@@ -109,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                         SizedBox(
                                           width: 200,
                                           child: TextField(
@@ -121,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(height: 30),
+                                        const SizedBox(height: 30),
                                         SizedBox(
                                           width: 80,
                                           child: ElevatedButton(

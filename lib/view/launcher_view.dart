@@ -4,6 +4,8 @@ import 'dart:async';
 //import '../constants.dart';
 
 class LauncherPage extends StatefulWidget {
+  const LauncherPage({super.key});
+
   @override
   _LauncherPageState createState() => _LauncherPageState();
 }

@@ -40,7 +40,7 @@ class ApiBaseHelper {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("token");
     if (token != null) {
-      print("TOKEN requestinterceptor:" + token);
+      print("TOKEN requestinterceptor:$token");
       options.headers.addAll({
         "Authorization": "Bearer $token",
         "Accept": "application/json",
@@ -71,9 +71,9 @@ class ApiBaseHelper {
       return response;
     } on DioException catch (e) {
       // Handle error
-      print("request header: " + e.toString());
-      print("request data: " + e.toString());
-      print("response : " + e.toString());
+      print("request header: $e");
+      print("request data: $e");
+      print("response : $e");
       _errorHandler(e.error);
       return null;
     }
@@ -106,7 +106,7 @@ class ApiBaseHelper {
   _errorHandler(dynamic e) {
     if (e["message"] is String) {
       if (e["message"] != null) {
-        Utils.displayToast("filed! " + e['message'].toString(), "warning");
+        Utils.displayToast("filed! ${e['message']}", "warning");
       }
     } else {
       if (e["message"] != null) {

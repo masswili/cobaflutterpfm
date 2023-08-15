@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home:
-            LauncherPage() //const MyHomePage(title: 'Flutter Demo Home Page'),
+            const LauncherPage() //const MyHomePage(title: 'Flutter Demo Home Page'),
         );
   }
 }
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(
           widget.title,
-          style: TextStyle(color: Colors.brown),
+          style: const TextStyle(color: Colors.brown),
         ),
       ),
       body: Center(

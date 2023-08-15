@@ -17,7 +17,7 @@ class TextFormFieldWidget extends StatefulWidget {
   final Function onFieldTap;
 
   const TextFormFieldWidget(
-      {required this.hintText,
+      {super.key, required this.hintText,
       required this.focusNode,
       required this.textInputType,
       required this.defaultText,
