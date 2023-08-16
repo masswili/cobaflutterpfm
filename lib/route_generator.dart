@@ -1,6 +1,7 @@
 import 'package:cobaflutterpfm/transition/size_route.dart';
 import 'package:cobaflutterpfm/view/Launcher_view.dart';
 import 'package:cobaflutterpfm/view/login_view.dart';
+import 'package:cobaflutterpfm/view/register_view.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -14,6 +15,8 @@ class RouteGenerator {
         return SizeRoute(page: const LoginPage());
       // case '/home':
       //   return SlideUpRoute(page: HomePage());
+      case '/register':
+        return SizeRoute(page: const RegisterPage());
       default:
         return _errorRoute();
     }
