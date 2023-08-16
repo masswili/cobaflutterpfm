@@ -30,7 +30,7 @@ class ApiBaseHelper {
             print('DioError occurred: ${e.message}');
 
             // Lepaskan error ke interceptor berikutnya atau biarkan melewatinya
-            handler.next(e);
+            Utils.displayToast("Request gagal", "warning");
           },
         ),
       );

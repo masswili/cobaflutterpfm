@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'package:cobaflutterpfm/component/api_base_helper_v2.dart';
+import 'package:cobaflutterpfm/component/utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 // import '../application.dart';
 import '../component/api_base_helper.dart';
 //import '../component/button_widget.dart';
@@ -20,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController clientIdController = TextEditingController();
   late String _screenStage;
   ApiBaseHelper api = ApiBaseHelper();
+  ApiBaseHelperv2 api2 = ApiBaseHelperv2();
   @override
   void dispose() {
     usernameController.dispose();
@@ -234,30 +238,29 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _screenStage = "loaded";
       });
-      // if (response != null) {
-      //   print(response);
+       if (response != null) {
+         Map<String, dynamic> res = response.data;
 
-      //   Map<String, dynamic> res = response.data;
-      //   if (res['status']) {
-      //     Utils.displayToast("login berhasil", "success");
-      //     Map<String, dynamic> data = res["user"];
-      //     print(res);
-      //     print("TES::" + data['id'].toString());
-      //     SharedPreferences prefs = await SharedPreferences.getInstance();
-      //     await prefs.setString('token', res['token']);
-      //     await prefs.setInt('id', data['id']);
-      //     await prefs.setString('name', data['name']);
-      //     await prefs.setString('username', data['username']);
-      //     await prefs.setString('email', data['email']);
-      //     print(prefs.getString("token"));
-      //     print(prefs.getInt("id"));
-      //     print(prefs.getString("username"));
-      //     print(prefs.getString("name"));
-      //     Navigator.pushReplacementNamed(context, "/home");
-      //   } else {
-      //     Utils.displayToast(res['message'], "warning");
-      //   }
-      // }
+         if (res['status'] == "Success") {
+           Utils.displayToast("login berhasil", "success");
+          //  Map<String, dynamic> data = res["user"];
+          //  print(res);
+          //  print("TES::" + data['id'].toString());
+          //  SharedPreferences prefs = await SharedPreferences.getInstance();
+          //  await prefs.setString('token', res['token']);
+          //  await prefs.setInt('id', data['id']);
+          //  await prefs.setString('name', data['name']);
+          //  await prefs.setString('username', data['username']);
+          //  await prefs.setString('email', data['email']);
+          //  print(prefs.getString("token"));
+          //  print(prefs.getInt("id"));
+          //  print(prefs.getString("username"));
+          //  print(prefs.getString("name"));
+          //  Navigator.pushReplacementNamed(context, "/home");
+         } else {
+           Utils.displayToast(res['message'], "warning");
+         }
+       }
     }
   }
 }

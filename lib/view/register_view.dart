@@ -18,6 +18,11 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController nikController = TextEditingController();
+  TextEditingController cifnumController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  
   late String _screenStage;
   ApiBaseHelper api = ApiBaseHelper();
 
@@ -32,10 +37,9 @@ class _RegisterPageState extends State<RegisterPage> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
         //backgroundColor: BasePalette.primary,
-        body: Center(
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
               //padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
-              child: Stack(
+              child: Column(
             children: [
               Container(
                   decoration: const BoxDecoration(
@@ -72,7 +76,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             children: [
                               Column(
                                 children: [
-                                  Card(
+                                  SingleChildScrollView(
+                                    child: Container(
+                                      height: 300,
+                                      width: 400,
+                                      child: Card(
                                       elevation: 10,
                                       margin:
                                           const EdgeInsets.symmetric(horizontal: 30),
@@ -83,10 +91,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                             width: 2),
                                         borderRadius: BorderRadius.circular(20),
                                       ),
-                                      child: Padding(
+                                      child: ListView(
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 20, horizontal: 30),
-                                          child: Column(children: <Widget>[
+                                          children: <Widget>[
                                             SizedBox(
                                               width: 200,
                                               child: TextField(
@@ -94,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 controller: nameController,
                                                 decoration: const InputDecoration(
                                                   border: OutlineInputBorder(),
-                                                  labelText: 'name'
+                                                  labelText: 'Full Name'
                                                 ),
                                               ),
                                             ),
@@ -106,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 controller: emailController,
                                                 decoration: const InputDecoration(
                                                   border: OutlineInputBorder(),
-                                                  labelText: 'email'
+                                                  labelText: 'Email'
                                                 ),
                                               ),
                                             ),
@@ -118,7 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 controller: usernameController,
                                                 decoration: const InputDecoration(
                                                   border: OutlineInputBorder(),
-                                                  labelText: 'username'
+                                                  labelText: 'Username'
                                                 ),
                                               ),
                                             ),
@@ -130,18 +138,91 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 controller: passwordController,
                                                 decoration: const InputDecoration(
                                                   border: OutlineInputBorder(),
-                                                  labelText: 'password'
+                                                  labelText: 'Password'
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(height: 0.1 * height),
-                                          ]))),
-                                  const SizedBox(
-                                    height: 20,
-                                  )
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              width: 200,
+                                              child: TextField(
+                                                obscureText: false,
+                                                controller: nikController,
+                                                decoration: const InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'NIK'
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              width: 200,
+                                              child: TextField(
+                                                obscureText: false,
+                                                controller: cifnumController,
+                                                decoration: const InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'CIF NUM'
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              width: 200,
+                                              child: TextField(
+                                                obscureText: false,
+                                                controller: genderController,
+                                                decoration: const InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'Gender'
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              width: 200,
+                                              child: TextField(
+                                                obscureText: false,
+                                                controller: addressController,
+                                                decoration: const InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'Address'
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 30),
+                                            SizedBox(
+                                              width: 80,
+                                              child: ElevatedButton(
+                                                onPressed: () {
+                                                  // Fungsi untuk login biometrik ygy
+                                                  // _performBiometricLogin();
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  shape:
+                                                      const CircleBorder(), // Bentuk lingkaran
+                                                  backgroundColor: Colors
+                                                      .green, // Warna latar belakang tombol
+                                                  padding: const EdgeInsets.all(
+                                                      25), // Padding agar tidak terlalu kecil
+                                                ),
+                                                child: const Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(Icons.mic), // Icon mic
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ])))
+                                    )
                                 ],
                               ),
-                              Positioned(
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Positioned(
                                   bottom: 0.0,
                                   child: _screenStage == "loaded"
                                       ? ElevatedButton(
@@ -155,10 +236,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   )
-                                : const CircularProgressIndicator(),)
-                            ],
-                          ),
-                          const SizedBox(height: 20),
+                                : const CircularProgressIndicator(),),
+                          const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -276,15 +355,21 @@ class _RegisterPageState extends State<RegisterPage> {
               )
             ],
           )),
-        ));
+        );
   }
 
   _register() async {
-      Response? response = await api.postHTTP("register", {
+      Response? response = await api.postHTTP("register-user", {
+        "client_id": "WEB",
         "username": usernameController.text,
         "password": passwordController.text,
         "email": emailController.text,
-        "name": nameController.text
+        "fullname": nameController.text,
+        "nik": nikController.text,
+        "cifNum": cifnumController.text,
+        "gender": genderController.text,
+        "address": addressController.text,
+        "role": "user"
       });
 
       var validate = _formKey.currentState?.validate();
