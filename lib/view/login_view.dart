@@ -195,6 +195,25 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ],
+                      ),
+                      //TEMPORARY SAJA
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/home");
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Home Page',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ))),
