@@ -12,6 +12,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LauncherPage());
       case '/login':
         return SizeRoute(page: const LoginPage());
+      // case '/home':
+      //   return SlideUpRoute(page: HomePage());
       default:
         return _errorRoute();
     }
