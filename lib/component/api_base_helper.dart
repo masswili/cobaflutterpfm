@@ -43,9 +43,10 @@ class ApiBaseHelper {
 
     print("TOKEN requestinterceptor: $token");
     options.headers.addAll({
-      "Authorization": 'Bearer $token',
-      "Accept": "application/json",
-      "headerApiKey": "PFM~API/"
+      "Content-Type": "application/json",
+      "headerApiKey": "PFM~API/",
+      "Access-Control-Allow-Origin": "*",
+      "Accept": "*/*"
     });
 
     return handler.next(options);
