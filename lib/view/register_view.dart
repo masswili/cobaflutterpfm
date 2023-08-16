@@ -190,7 +190,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               elevation: 0,
                             ),
                             child: const Text(
-                              'Login Here',
+                              'Back to Login',
                               style: TextStyle(color: Colors.blue),
                             ),
                           ),
