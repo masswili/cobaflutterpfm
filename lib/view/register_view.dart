@@ -22,7 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController cifnumController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-  
+
   late String _screenStage;
   ApiBaseHelper api = ApiBaseHelper();
 
@@ -36,315 +36,188 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-        //backgroundColor: BasePalette.primary,
-        body: SingleChildScrollView(
-              //padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30),
-              child: Column(
+      //backgroundColor: BasePalette.primary,
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Image.asset(
+                "assets/images/Logo-Bank-BNI-PNG.png",
+                height: 100.0,
+                width: 200.0,
+              ),
+              const SizedBox(height: 10),
+              const Text("Personal Finance Management",
+                  style: TextStyle(
+                      fontFamily: 'NeoSansBold',
+                      fontSize: 20,
+                      color: Colors.orange)),
+              SizedBox(height: 0.05 * height),
               Container(
-                  decoration: const BoxDecoration(
-                    // image: DecorationImage(
-                    //   image: AssetImage("assets/images/bg.png"),
-                    //   colorFilter:
-                    //   ColorFilter.mode(Colors.black.withOpacity(0.2),
-                    //   BlendMode.dstATop),
-                    //   fit: BoxFit.cover,
-                    //   alignment: FractionalOffset.topCenter,
-                    // ),
+                height: 590,
+                width: 400,
+                child: Card(
+                  elevation: 10,
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
+                  color: const Color(0xffffffff),
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: BasePalette.primary, width: 2),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  height: height,
-                  child: Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/images/Logo-Bank-BNI-PNG.png",
-                            height: 100.0,
-                            width: 200.0,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: nameController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Full Name'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(), labelText: 'Email'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: usernameController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Username'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: true,
+                          controller: passwordController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Password'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: nikController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(), labelText: 'NIK'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: cifnumController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'CIF NUM'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: genderController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Gender'),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          obscureText: false,
+                          controller: addressController,
+                          decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Address'),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 80,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Fungsi untuk login biometrik ygy
+                            // _performBiometricLogin();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(), // Bentuk lingkaran
+                            backgroundColor:
+                                Colors.green, // Warna latar belakang tombol
+                            padding: const EdgeInsets.all(
+                                25), // Padding agar tidak terlalu kecil
                           ),
-                          const SizedBox(height: 10),
-                          const Text("Personal Finance Management",
-                              style: TextStyle(
-                                  fontFamily: 'NeoSansBold',
-                                  fontSize: 20,
-                                  color: Colors.orange)),
-                          SizedBox(height: 0.05 * height),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Column(
-                                children: [
-                                  SingleChildScrollView(
-                                    child: Container(
-                                      height: 300,
-                                      width: 400,
-                                      child: Card(
-                                      elevation: 10,
-                                      margin:
-                                          const EdgeInsets.symmetric(horizontal: 30),
-                                      color: const Color(0xffffffff),
-                                      shape: RoundedRectangleBorder(
-                                        side: BorderSide(
-                                            color: BasePalette.primary,
-                                            width: 2),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: ListView(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 20, horizontal: 30),
-                                          children: <Widget>[
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: nameController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Full Name'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: emailController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Email'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: usernameController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Username'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: true,
-                                                controller: passwordController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Password'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: nikController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'NIK'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: cifnumController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'CIF NUM'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: genderController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Gender'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 10),
-                                            SizedBox(
-                                              width: 200,
-                                              child: TextField(
-                                                obscureText: false,
-                                                controller: addressController,
-                                                decoration: const InputDecoration(
-                                                  border: OutlineInputBorder(),
-                                                  labelText: 'Address'
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(height: 30),
-                                            SizedBox(
-                                              width: 80,
-                                              child: ElevatedButton(
-                                                onPressed: () {
-                                                  // Fungsi untuk login biometrik ygy
-                                                  // _performBiometricLogin();
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  shape:
-                                                      const CircleBorder(), // Bentuk lingkaran
-                                                  backgroundColor: Colors
-                                                      .green, // Warna latar belakang tombol
-                                                  padding: const EdgeInsets.all(
-                                                      25), // Padding agar tidak terlalu kecil
-                                                ),
-                                                child: const Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(Icons.mic), // Icon mic
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ])))
-                                    )
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Positioned(
-                                  bottom: 0.0,
-                                  child: _screenStage == "loaded"
-                                      ? ElevatedButton(
-                                    onPressed: _register,
-                                    style: ElevatedButton.styleFrom(
-                                      minimumSize: const Size(200, 50),
-                                      backgroundColor: BasePalette.primary,
-                                    ),
-                                    child: const Text(
-                                      "Register", // Ganti dengan teks tombol yang sesuai
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  )
-                                : const CircularProgressIndicator(),),
-                          const SizedBox(height: 10),
-                          Row(
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, "/login");
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.transparent,
-                                  elevation: 0,
-                                ),
-                                child: const Text(
-                                  'Login Here',
-                                  style: TextStyle(color: Colors.blue),
-                                ),
-                              ),
+                              Icon(Icons.mic), // Icon mic
                             ],
-                          )
-                        ],
-                      ))),
-              // Positioned(
-              //     left: 20,
-              //     top: 45,
-              //     child: Row(
-              //       children: [
-              //         InkWell(
-              //           onTap: () async {
-              //             bool result = await showDialog(
-              //                 context: context,
-              //                 builder: (context) {
-              //                   return AlertDialog(
-              //                     title: Text('Language'),
-              //                     content: Text(
-              //                         'Are you sure you want to change to Indonesian?'),
-              //                     actions: <Widget>[
-              //                       new InkWell(
-              //                         onTap: () {
-              //                           Navigator.of(context,
-              //                                   rootNavigator: true)
-              //                               .pop(false);
-              //                         },
-              //                         child: Text('No'),
-              //                       ),
-              //                       new InkWell(
-              //                         onTap: () {
-              //                           Navigator.of(context,
-              //                                   rootNavigator: true)
-              //                               .pop(true);
-              //                         },
-              //                         child: Text('Yes'),
-              //                       ),
-              //                     ],
-              //                   );
-              //                 });
-              //             if (result) {
-              //               applic.onLocaleChanged(new Locale('id', ''));
-              //             }
-              //           },
-              //           child: Text(
-              //             "IND",
-              //             style: TextStyle(color: BasePalette.bg),
-              //           ),
-              //         ),
-              //         Text(
-              //           " | ",
-              //           style: TextStyle(color: BasePalette.bg),
-              //         ),
-              //         InkWell(
-              //           onTap: () async {
-              //             bool result = await showDialog(
-              //                 context: context,
-              //                 builder: (context) {
-              //                   return AlertDialog(
-              //                     title: Text('Bahasa'),
-              //                     content:
-              //                         Text('Yakin merubah ke bahasa Inggris?'),
-              //                     actions: <Widget>[
-              //                       new InkWell(
-              //                         onTap: () {
-              //                           Navigator.of(context,
-              //                                   rootNavigator: true)
-              //                               .pop(false);
-              //                         },
-              //                         child: Text('Tidak'),
-              //                       ),
-              //                       new InkWell(
-              //                         onTap: () {
-              //                           Navigator.of(context,
-              //                                   rootNavigator: true)
-              //                               .pop(true);
-              //                         },
-              //                         child: Text('Iya'),
-              //                       ),
-              //                     ],
-              //                   );
-              //                 });
-              //             if (result) {
-              //               applic.onLocaleChanged(new Locale('en', ''));
-              //             }
-              //           },
-              //           child: Text(
-              //             "ENG",
-              //             style: TextStyle(color: BasePalette.bg),
-              //           ),
-              //         ),
-              //       ],
-              //     )),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Positioned(
+                bottom: 0.0,
+                child: _screenStage == "loaded"
+                    ? ElevatedButton(
+                        onPressed: _register,
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(200, 50),
+                          backgroundColor: BasePalette.primary,
+                        ),
+                        child: const Text(
+                          "Register", // Ganti dengan teks tombol yang sesuai
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      )
+                    : const CircularProgressIndicator(),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/login");
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                    ),
+                    child: const Text(
+                      'Login Here',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                ],
+              ),
               Positioned(
                 right: 20,
                 top: 45,
@@ -352,31 +225,34 @@ class _RegisterPageState extends State<RegisterPage> {
                   "V 0.1",
                   style: TextStyle(color: BasePalette.bg),
                 ),
-              )
+              ),
             ],
-          )),
-        );
+          ),
+        ),
+      ),
+    );
   }
 
   _register() async {
-      Response? response = await api.postHTTP("register-user", {
-        "client_id": "WEB",
-        "username": usernameController.text,
-        "password": passwordController.text,
-        "email": emailController.text,
-        "fullname": nameController.text,
-        "nik": nikController.text,
-        "cifNum": cifnumController.text,
-        "gender": genderController.text,
-        "address": addressController.text,
-        "role": "user"
-      });
+    Response? response = await api.postHTTP("register-user", {
+      "client_id": "WEB",
+      "username": usernameController.text,
+      "password": passwordController.text,
+      "email": emailController.text,
+      "fullname": nameController.text,
+      "nik": nikController.text,
+      "cifNum": cifnumController.text,
+      "gender": genderController.text,
+      "address": addressController.text,
+      "role": "user"
+    });
+    print(response);
 
-      var validate = _formKey.currentState?.validate();
-      if (validate != null) {
-        setState(() {
-          _screenStage = "loading";
-        });
+    var validate = _formKey.currentState?.validate();
+    if (validate != null) {
+      setState(() {
+        _screenStage = "loading";
+      });
       _formKey.currentState!.save();
       setState(() {
         _screenStage = "loaded";
@@ -385,7 +261,7 @@ class _RegisterPageState extends State<RegisterPage> {
       if (response != null) {
         print(response);
         Map<String, dynamic> res = response.data;
-        if (res['status']) {
+        if (res['status'] == "Success") {
           Utils.displayToast("register berhasil, silahkan login", "success");
           print(res);
           Navigator.pushReplacementNamed(context, "/login");
