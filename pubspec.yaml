@@ -33,12 +33,17 @@ dependencies:
   dio: 5.3.2
   shared_preferences: ^2.2.0
   fluttertoast: ^8.2.2
-  pie_chart: ^5.3.2 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   http: ^1.1.0
+  intl: ^0.18.1
+  colorize_text_avatar: ^1.0.2
+  provider: ^6.0.5
+  table_calendar: ^3.0.9
+  fl_chart: ^0.63.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +86,21 @@ flutter:
     - assets/images/photo_btn.png
     - assets/images/history_btn.png
     - assets/images/images_btn.png
+    - assets/icons/Documents.svg
+    - assets/icons/drop_box.svg
+    - assets/icons/folder.svg
+    - assets/icons/logo.svg
+    - assets/icons/media.svg
+    - assets/icons/menu_dashbord.svg
+    - assets/icons/menu_doc.svg
+    - assets/icons/menu_notification.svg
+    - assets/icons/menu_profile.svg
+    - assets/icons/menu_setting.svg
+    - assets/icons/menu_store.svg
+    - assets/icons/menu_task.svg
+    - assets/icons/menu_tran.svg
+    - assets/icons/Search.svg
+    - assets/icons/unknown.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

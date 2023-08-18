@@ -19,7 +19,7 @@ class RouteGenerator {
       case '/register':
         return SlideUpRoute(page: const RegisterPage());
       case '/home':
-        return FadeRoute(page: const HomePage());
+        return FadeRoute(page: DashboardScreen());
       default:
         return _errorRoute();
     }

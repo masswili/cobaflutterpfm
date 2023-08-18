@@ -257,11 +257,11 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _screenStage = "loaded";
       });
-       if (response != null) {
-         Map<String, dynamic> res = response.data;
+      if (response != null) {
+        Map<String, dynamic> res = response.data;
 
-         if (res['status'] == "Success") {
-           Utils.displayToast("login berhasil", "success");
+        if (res['status'] == "Success") {
+          Utils.displayToast("login berhasil", "success");
           //  Map<String, dynamic> data = res["user"];
           //  print(res);
           //  print("TES::" + data['id'].toString());
@@ -276,10 +276,10 @@ class _LoginPageState extends State<LoginPage> {
           //  print(prefs.getString("username"));
           //  print(prefs.getString("name"));
           //  Navigator.pushReplacementNamed(context, "/home");
-         } else {
-           Utils.displayToast(res['message'], "warning");
-         }
-       }
+        } else {
+          Utils.displayToast(res['message'], "warning");
+        }
+      }
     }
   }
 }
