@@ -36,7 +36,6 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      //backgroundColor: BasePalette.primary,
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,

@@ -1,51 +1,201 @@
+import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../core/constants/color_constants.dart';
-import '../responsive.dart';
-import 'components/header.dart';
-import 'components/user_details_widget.dart';
+class DashboardScreen extends StatefulWidget {
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
 
-class DashboardScreen extends StatelessWidget {
+class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        //padding: EdgeInsets.all(defaultPadding),
-        child: Container(
-          padding: EdgeInsets.all(defaultPadding),
-          child: Column(
-            children: [
-              Header(),
-              SizedBox(height: defaultPadding),
-              SizedBox(height: defaultPadding),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 5,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
                     child: Column(
                       children: [
-                        //MyFiels(),
-                        //SizedBox(height: defaultPadding),
-                        SizedBox(height: defaultPadding),
-                        if (Responsive.isMobile(context))
-                          SizedBox(height: defaultPadding),
-                        if (Responsive.isMobile(context)) UserDetailsWidget(),
+                        const Expanded(
+                          flex: 4,
+                          child: Text('1'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text('Details'),
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.orange,
+                                  onPrimary: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(0))),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  if (!Responsive.isMobile(context))
-                    SizedBox(width: defaultPadding),
-                  // On Mobile means if the screen is less than 850 we dont want to show it
-                  if (!Responsive.isMobile(context))
-                    Expanded(
-                      flex: 2,
-                      child: UserDetailsWidget(),
-                    ),
-                ],
-              )
-            ],
-          ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('2'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('3'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('4'),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('1'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('2'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('3'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('4'),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('1'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('2'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('3'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('4'),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('1'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('2'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('3'),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    margin: EdgeInsets.all(10),
+                    color: BasePalette.primary,
+                    child: Text('4'),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
