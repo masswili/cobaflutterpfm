@@ -4,6 +4,7 @@ import 'package:cobaflutterpfm/component/utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 // import '../application.dart';
 import '../component/api_base_helper.dart';
 //import '../component/button_widget.dart';
@@ -134,11 +135,11 @@ class _LoginPageState extends State<LoginPage> {
                           backgroundColor: BasePalette.primary,
                         ),
                         child: const Text(
-                          "Login", // Ganti dengan teks tombol yang sesuai
+                          "Login",
                           style: TextStyle(color: Colors.white),
                         ),
                       )
-                    : const CircularProgressIndicator(),
+                    : CircularProgressIndicator(),
               ),
               const SizedBox(height: 10),
               Row(
@@ -193,56 +194,57 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _login() async {
-    // setState(() {
-    //   _screenStage = "loading";
-    // });
-    // setState(() {
-    //   _screenStage = "loaded";
-    // });
-    Response? response = await api.postHTTP("login-user", {
-      "username": usernameController.text,
-      "client_id": clientIdController.text
+  Future<void> _login() async {
+    setState(() {
+      _screenStage = "loading";
     });
 
-    print(response);
+    Map<String, dynamic> requestData = {
+      "client_id": "WEB",
+      "username": usernameController.text,
+      "audioB64": "",
+    };
 
-    var validate = _formKey.currentState?.validate();
-    if (validate != null) {
-      setState(() {
-        _screenStage = "loading";
-      });
-      _formKey.currentState!.save();
-      // Response response = await api.postHTTP("login", {
-      //   "username": usernameController.text,
-      //   "password": passwordController.text
-      // });
-      setState(() {
-        _screenStage = "loaded";
-      });
-      if (response != null) {
+    try {
+      Response response = await Dio().post(
+        "https://pfm-api.rodd-it.my.id/api/login-user",
+        data: requestData,
+        options: Options(headers: {"headerApiKey": "PFM~API/"}),
+      );
+
+      if (response.statusCode == 200) {
         Map<String, dynamic> res = response.data;
 
         if (res['status'] == "Success") {
-          Utils.displayToast("login berhasil", "success");
-          //  Map<String, dynamic> data = res["user"];
-          //  print(res);
-          //  print("TES::" + data['id'].toString());
-          //  SharedPreferences prefs = await SharedPreferences.getInstance();
-          //  await prefs.setString('token', res['token']);
-          //  await prefs.setInt('id', data['id']);
-          //  await prefs.setString('name', data['name']);
-          //  await prefs.setString('username', data['username']);
-          //  await prefs.setString('email', data['email']);
-          //  print(prefs.getString("token"));
-          //  print(prefs.getInt("id"));
-          //  print(prefs.getString("username"));
-          //  print(prefs.getString("name"));
-          //  Navigator.pushReplacementNamed(context, "/home");
+          setState(() {
+            _screenStage = "loaded";
+          });
+
+          // Navigate to the home page
+          Navigator.pushReplacementNamed(context, "/home");
         } else {
+          // Update the _screenStage to "loaded" after login failure
+          setState(() {
+            _screenStage = "loaded";
+          });
+
           Utils.displayToast(res['message'], "warning");
         }
+      } else {
+        // Update the _screenStage to "loaded" if the response status is not 200
+        setState(() {
+          _screenStage = "loaded";
+        });
+
+        Utils.displayToast("An error occurred during login.", "error");
       }
+    } catch (error) {
+      // Handle any errors that occurred during the HTTP request
+      setState(() {
+        _screenStage = "loaded";
+      });
+
+      Utils.displayToast("An error occurred: $error", "error");
     }
   }
 }
