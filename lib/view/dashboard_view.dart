@@ -16,16 +16,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Row(
               children: [
                 Expanded(
+                  flex: 7,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
+                    margin: EdgeInsets.all(8),
+                    child: const Column(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Text('1'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
+                    height: 200,
+                    margin: EdgeInsets.all(8),
                     child: Column(
                       children: [
                         const Expanded(
-                          flex: 4,
-                          child: Text('1'),
+                          flex: 5,
+                          child: Text('2'),
                         ),
                         Expanded(
                           flex: 1,
@@ -33,12 +53,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () {},
-                              child: Text('Details'),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View Details'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
                               style: ElevatedButton.styleFrom(
-                                  primary: Colors.orange,
+                                  primary: BasePalette.menuCar,
                                   onPrimary: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(0))),
+                                  shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -47,70 +78,47 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
                 Expanded(
+                  flex: 6,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.green,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('2'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('3'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('4'),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('1'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('2'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('3'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('4'),
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('3'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View More'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: BasePalette.menuShop,
+                                onPrimary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -118,39 +126,109 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Row(
               children: [
                 Expanded(
+                  flex: 7,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('1'),
+                    margin: EdgeInsets.all(8),
+                    child: const Column(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Text('1'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
+                  flex: 5,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('2'),
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('2'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View Details'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                  primary: BasePalette.menuCar,
+                                  onPrimary: Colors.white,
+                                  shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
+                  flex: 6,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.green,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('3'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('4'),
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('3'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View More'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: BasePalette.menuShop,
+                                onPrimary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -158,43 +236,223 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Row(
               children: [
                 Expanded(
+                  flex: 7,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('1'),
+                    margin: EdgeInsets.all(8),
+                    child: const Column(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Text('1'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
+                  flex: 5,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('2'),
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('2'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View Details'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                  primary: BasePalette.menuCar,
+                                  onPrimary: Colors.white,
+                                  shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
+                  flex: 6,
                   child: Container(
-                    width: 200,
+                    decoration: BoxDecoration(
+                        color: BasePalette.green,
+                        borderRadius: BorderRadius.circular(5)),
                     height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('3'),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    margin: EdgeInsets.all(10),
-                    color: BasePalette.primary,
-                    child: Text('4'),
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('3'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View More'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: BasePalette.menuShop,
+                                onPrimary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
-            )
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
+                    height: 200,
+                    margin: EdgeInsets.all(8),
+                    child: const Column(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Text('1'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: BasePalette.menuBluebird,
+                        borderRadius: BorderRadius.circular(5)),
+                    height: 200,
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('2'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View Details'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                  primary: BasePalette.menuCar,
+                                  onPrimary: Colors.white,
+                                  shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: BasePalette.green,
+                        borderRadius: BorderRadius.circular(5)),
+                    height: 200,
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        const Expanded(
+                          flex: 5,
+                          child: Text('3'),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('View More'),
+                                  Icon(Icons.arrow_circle_right)
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: BasePalette.menuShop,
+                                onPrimary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.zero,
+                                    bottom: Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
