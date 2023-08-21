@@ -32,7 +32,7 @@ class _SpendBoxState extends State<SpendBox> {
                     ),
                     Text(
                       'My Spends Last 30 Days',
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ],
                 ),

@@ -38,7 +38,7 @@ class _ChartBoxState extends State<ChartBox> {
                     SizedBox(width: 8),
                     Text(
                       'Networth 2023 on 31 Agustus 2023',
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     SizedBox(
                       height: 50,
