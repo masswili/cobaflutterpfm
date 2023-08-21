@@ -1,5 +1,18 @@
+import 'package:cobaflutterpfm/component/Dashboard/Chart_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/account_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/activity_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/ads_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/budgets_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/goals.box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/offers_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/payment_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/quick_access_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/service_request_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/spend_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/upcoming_payment_box.dart';
 import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -14,444 +27,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
+            const Row(
+              children: [ChartBox(), SpendBox(), ActivityBox()],
+            ),
+            const Row(
+              children: [AccountBox(), PaymentBox(), UpcomingPaymentBox()],
+            ),
+            const Row(
               children: [
                 Expanded(
-                  flex: 7,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: BasePalette.menuBluebird,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 225,
-                    margin: EdgeInsets.all(8),
-                    child: const Column(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Text('1'),
-                        ),
-                      ],
-                    ),
+                  flex: 1,
+                  child: Column(
+                    children: [
+                      GoalsBox(),
+                      BudgetsBox(),
+                    ],
                   ),
                 ),
-                Expanded(
-                  flex: 5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: BasePalette.menuBluebird,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 220,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('2'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View Details'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  primary: BasePalette.menuCar,
-                                  onPrimary: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 6,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: BasePalette.green,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 225,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('3'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View More'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: BasePalette.menuShop,
-                                onPrimary: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                QuickAccessBox(),
+                OffersBox(),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 330,
-                    margin: EdgeInsets.all(8),
-                    child: const Column(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Text('1'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 350,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('2'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View Details'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  primary: BasePalette.menuCar,
-                                  onPrimary: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 350,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('3'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View More'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: BasePalette.menuShop,
-                                onPrimary: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: BasePalette.menuBluebird,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: const Column(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Text('1'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('2'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View Details'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  primary: BasePalette.menuCar,
-                                  onPrimary: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('3'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View More'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: BasePalette.menuShop,
-                                onPrimary: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: const Column(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Text('1'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('2'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View Details'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  primary: BasePalette.menuCar,
-                                  onPrimary: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5)),
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                    child: Column(
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: Text('3'),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('View More'),
-                                  Icon(Icons.arrow_circle_right)
-                                ],
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: BasePalette.menuShop,
-                                onPrimary: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.zero,
-                                    bottom: Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                const ServiceBox(),
+                AdsBox(),
+                AdsBox(),
               ],
             ),
           ],
