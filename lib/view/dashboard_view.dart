@@ -10,9 +10,9 @@ import 'package:cobaflutterpfm/component/Dashboard/quick_access_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/service_request_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/spend_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/upcoming_payment_box.dart';
-import 'package:cobaflutterpfm/constants.dart';
+// import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
+// import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -22,18 +22,18 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Color.fromARGB(255, 238, 238, 238),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [ChartBox(), SpendBox(), ActivityBox()],
             ),
-            const Row(
+            Row(
               children: [AccountBox(), PaymentBox(), UpcomingPaymentBox()],
             ),
-            const Row(
+            Row(
               children: [
                 Expanded(
                   flex: 1,
@@ -50,7 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             Row(
               children: [
-                const ServiceBox(),
+                ServiceBox(),
                 AdsBox(),
                 AdsBox(),
               ],

@@ -21,9 +21,43 @@ class _ActivityBoxState extends State<ActivityBox> {
         margin: EdgeInsets.all(8),
         child: Column(
           children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Center(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Recent Activity',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             const Expanded(
               flex: 5,
-              child: Text('3'),
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Savings',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      'xxxxxx081',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                  Row(),
+                ],
+              ),
             ),
             Expanded(
               flex: 1,
