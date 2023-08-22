@@ -30,15 +30,21 @@ class _ChartBoxState extends State<ChartBox> {
               child: Center(
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.library_books,
-                      size: 24,
-                      color: Color(0xFFFFFFFF),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      'Networth 2023 on 31 Agustus 2023',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.library_books,
+                            size: 24,
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            'Networth 2023 on 31 Agustus 2023',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 50,
