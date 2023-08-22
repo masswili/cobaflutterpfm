@@ -14,10 +14,11 @@ class _BudgetsBoxState extends State<BudgetsBox> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: BasePalette.menuBluebird,
+          color: BasePalette.baseLight,
           borderRadius: BorderRadius.circular(5)),
       height: 100,
-      margin: EdgeInsets.all(8),
+      width: double.infinity,
+      margin: EdgeInsets.fromLTRB(8, 4, 8, 8),
       child: const Column(
         children: [
           Expanded(

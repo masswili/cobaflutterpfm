@@ -17,7 +17,8 @@ class _GoalsBoxState extends State<GoalsBox> {
           color: BasePalette.menuBluebird,
           borderRadius: BorderRadius.circular(5)),
       height: 100,
-      margin: EdgeInsets.all(8),
+      width: double.infinity,
+      margin: EdgeInsets.fromLTRB(8, 8, 8, 4),
       child: const Column(
         children: [
           Expanded(
