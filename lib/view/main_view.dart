@@ -12,14 +12,14 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   List<Widget> views = [
     DashboardScreen(),
-    Center(
-      child: Text('Account'),
+    const Center(
+      child: Text('Users Account Financial'),
     ),
-    Center(
-      child: Text('Settings'),
+    const Center(
+      child: Text('Budget'),
     ),
-    Center(
-      child: Text('Logout'),
+    const Center(
+      child: Text('Tranksaksi'),
     ),
   ];
 
@@ -49,16 +49,16 @@ class _MainViewState extends State<MainView> {
                 label: 'Dashboard',
               ),
               SideNavigationBarItem(
-                icon: Icons.person,
-                label: 'Account',
+                icon: Icons.people,
+                label: 'Users Account Financial',
               ),
               SideNavigationBarItem(
-                icon: Icons.settings,
-                label: 'Settings',
+                icon: Icons.money,
+                label: 'Budget',
               ),
               SideNavigationBarItem(
-                icon: Icons.logout,
-                label: 'Logout',
+                icon: Icons.handshake,
+                label: 'Transaksi',
               ),
             ],
             onTap: (index) {
