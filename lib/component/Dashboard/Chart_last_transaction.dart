@@ -13,15 +13,15 @@ class _ActivityBoxState extends State<ActivityBox> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 6,
+      flex: 5,
       child: Container(
         decoration: BoxDecoration(
             color: BasePalette.green, borderRadius: BorderRadius.circular(5)),
         height: 225,
         margin: EdgeInsets.all(8),
-        child: Column(
+        child: const Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Row(
@@ -37,7 +37,7 @@ class _ActivityBoxState extends State<ActivityBox> {
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 5,
               child: Stack(
                 children: [
@@ -152,32 +152,6 @@ class _ActivityBoxState extends State<ActivityBox> {
                     ),
                   ),
                 ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('View More'),
-                      Icon(Icons.arrow_circle_right)
-                    ],
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: BasePalette.menuShop,
-                    onPrimary: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.zero,
-                        bottom: Radius.circular(5),
-                      ),
-                    ),
-                  ),
-                ),
               ),
             ),
           ],

@@ -14,7 +14,7 @@ class _ChartBoxState extends State<ChartBox> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 7,
+      flex: 5,
       child: Container(
         decoration: BoxDecoration(
           color: BasePalette.menuBluebird,
@@ -33,15 +33,15 @@ class _ChartBoxState extends State<ChartBox> {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.library_books,
-                            size: 24,
-                            color: Color(0xFFFFFFFF),
-                          ),
-                          SizedBox(width: 8),
+                          // Icon(
+                          //   Icons.attach_money,
+                          //   size: 20,
+                          //   color: Color(0xFFFFFFFF),
+                          // ),
+                          // SizedBox(width: 8),
                           Text(
-                            'Networth 2023 on 31 Agustus 2023',
-                            style: TextStyle(fontSize: 20, color: Colors.white),
+                            'Panel Pemasukan Pengeluaran',
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ],
                       ),
@@ -103,34 +103,34 @@ class _ChartBoxState extends State<ChartBox> {
                               ),
                               const Expanded(
                                 child: Text(
-                                  'I Have',
+                                  'Pemasukan',
                                   style: TextStyle(color: Colors.white),
                                 ),
                               )
                             ],
                           ),
                         ),
-                        const Expanded(
-                          child: SizedBox(
-                            height: 100,
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Net Worth: Rp. 100,000",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Text(
-                                  "Cash: Rp. 200,000",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Text(
-                                  "Debt: Rp. 800,000",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        // const Expanded(
+                        //   child: SizedBox(
+                        //     height: 100,
+                        //     child: Column(
+                        //       children: [
+                        //         Text(
+                        //           "Net Worth: Rp. 100,000",
+                        //           style: TextStyle(color: Colors.white),
+                        //         ),
+                        //         Text(
+                        //           "Cash: Rp. 200,000",
+                        //           style: TextStyle(color: Colors.white),
+                        //         ),
+                        //         Text(
+                        //           "Debt: Rp. 800,000",
+                        //           style: TextStyle(color: Colors.white),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                         Center(
                           child: Column(
                             children: [
@@ -172,7 +172,7 @@ class _ChartBoxState extends State<ChartBox> {
                               ),
                               const Expanded(
                                 child: Text(
-                                  "I Owe",
+                                  "Pengeluaran",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),

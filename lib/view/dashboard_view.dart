@@ -1,5 +1,5 @@
 import 'package:cobaflutterpfm/component/Dashboard/Chart_in_out.dart';
-import 'package:cobaflutterpfm/component/Dashboard/account_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/Chart_merchant.dart';
 import 'package:cobaflutterpfm/component/Dashboard/Chart_last_transaction.dart';
 import 'package:cobaflutterpfm/component/Dashboard/ads_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/Chart_budget_category.dart';

@@ -32,7 +32,7 @@ class _MainViewState extends State<MainView> {
     "Notification 3",
   ];
 
-  final String username = "Mr. Syirod";
+  final String username = "Mr. Achmad Syirod";
   final String email = "user@example.com";
 
   @override
