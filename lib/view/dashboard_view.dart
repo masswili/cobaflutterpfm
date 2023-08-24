@@ -5,11 +5,11 @@ import 'package:cobaflutterpfm/component/Dashboard/ads_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/Chart_budget_category.dart';
 import 'package:cobaflutterpfm/component/Dashboard/goals.box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/Chart_financial_account.dart';
-import 'package:cobaflutterpfm/component/Dashboard/payment_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/Chart_budget_category.dart';
 import 'package:cobaflutterpfm/component/Dashboard/quick_access_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/service_request_box.dart';
 import 'package:cobaflutterpfm/component/Dashboard/Chart_top_spend.dart';
-import 'package:cobaflutterpfm/component/Dashboard/upcoming_payment_box.dart';
+import 'package:cobaflutterpfm/component/Dashboard/Chart_financial_account.dart';
 // import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
 // import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -34,26 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               children: [AccountBox(), PaymentBox(), UpcomingPaymentBox()],
             ),
             Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      GoalsBox(),
-                      BudgetsBox(),
-                    ],
-                  ),
-                ),
-                QuickAccessBox(),
-                OffersBox(),
-              ],
-            ),
-            Row(
-              children: [
-                ServiceBox(),
-                AdsBox(),
-                AdsBox(),
-              ],
+              children: [ServiceBox(), AdsBox(), AdsBox()],
             ),
           ],
         ),

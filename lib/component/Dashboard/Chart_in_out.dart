@@ -20,7 +20,7 @@ class _ChartBoxState extends State<ChartBox> {
           color: BasePalette.menuBluebird,
           borderRadius: BorderRadius.circular(5),
         ),
-        height: 225,
+        height: 250,
         margin: const EdgeInsets.all(8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,7 @@ class _ChartBoxState extends State<ChartBox> {
               ),
             ),
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Center(
                 child: Stack(
                   alignment: Alignment.center,

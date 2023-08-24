@@ -2,30 +2,57 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 
-class BudgetsBox extends StatefulWidget {
-  const BudgetsBox({super.key});
+class PaymentBox extends StatefulWidget {
+  const PaymentBox({super.key});
 
   @override
-  State<BudgetsBox> createState() => _BudgetsBoxState();
+  State<PaymentBox> createState() => _PaymentBoxState();
 }
 
-class _BudgetsBoxState extends State<BudgetsBox> {
+class _PaymentBoxState extends State<PaymentBox> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: BasePalette.baseLight,
-          borderRadius: BorderRadius.circular(5)),
-      height: 100,
-      width: double.infinity,
-      margin: EdgeInsets.fromLTRB(8, 4, 8, 8),
-      child: const Column(
-        children: [
-          Expanded(
-            flex: 4,
-            child: Text('2'),
-          ),
-        ],
+    return Expanded(
+      flex: 5,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        height: 250,
+        margin: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            const Expanded(
+              flex: 5,
+              child: Text('2'),
+            ),
+            Expanded(
+              flex: 5,
+              child: Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('View Details'),
+                      Icon(Icons.arrow_circle_right)
+                    ],
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: BasePalette.menuCar,
+                    onPrimary: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.zero,
+                        bottom: Radius.circular(5),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
