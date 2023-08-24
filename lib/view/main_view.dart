@@ -1,3 +1,4 @@
+import 'package:cobaflutterpfm/view/budget_view.dart';
 import 'package:cobaflutterpfm/view/dashboard_view.dart';
 import 'package:cobaflutterpfm/view/financial_accounts_view.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,7 @@ class _MainViewState extends State<MainView> {
   List<Widget> views = [
     DashboardScreen(),
     FinancialAccountsPage(),
-    const Center(
-      child: Text('Budget'),
-    ),
+    BudgetPage(),
     const Center(
       child: Text('Tranksaksi'),
     ),
