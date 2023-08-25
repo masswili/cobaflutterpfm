@@ -1,5 +1,6 @@
 import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class BudgetPage extends StatefulWidget {
   const BudgetPage({super.key});
@@ -69,7 +70,8 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.only(top: 32, left: 32),
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 32),
                                         height: 60,
                                         width: 60,
                                         child: DecoratedBox(
@@ -82,12 +84,14 @@ class _BudgetPageState extends State<BudgetPage> {
                                             border: Border.all(
                                               color: Colors.black,
                                             ),
-                                            borderRadius: BorderRadius.circular(5),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
                                           ),
                                         ),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 8, left: 32),
+                                        margin:
+                                            EdgeInsets.only(top: 8, left: 32),
                                         child: Text('Budget'),
                                       )
                                     ],
@@ -95,11 +99,13 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.only(top: 32, left: 80),
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 48),
                                         child: Text('Base'),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 32, left: 80),
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 48),
                                         child: Text('Sisa'),
                                       )
                                     ],
@@ -107,18 +113,41 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.only(top: 32, left: 150),
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 130),
                                         child: Text('Rp. 1.000.000.000'),
                                       ),
                                       Container(
-                                        margin: EdgeInsets.only(top: 32, left: 150),
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 130),
                                         child: Text('Rp. 500.000.000'),
                                       )
                                     ],
                                   ),
                                 ],
                               ),
-                              
+                              Container(
+                                margin: EdgeInsets.only(left: 132),
+                                child: LinearPercentIndicator(
+                                  width: 292.0,
+                                  lineHeight: 15.0,
+                                  percent: 0.5,
+                                  animation: true,
+                                  progressColor: BasePalette.primary,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(left: 142, top: 8),
+                                    child: Text('Terpakai')
+                                    ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 32, top: 8),
+                                    child: Text('Rp. 500.000.000')
+                                    ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
@@ -135,6 +164,83 @@ class _BudgetPageState extends State<BudgetPage> {
                             border: Border.all(
                               color: Colors.black,
                             ),
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 32),
+                                        height: 60,
+                                        width: 60,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/Logo-Bank-BNI-PNG.png'),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                              color: Colors.black,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 8, left: 36),
+                                        child: Text('Pemasukan'),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 32),
+                                        child: Text('Base'),
+                                      ),
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 54),
+                                        child: Text('Total Income'),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 90),
+                                        child: Text('Rp. 1.000.000.000'),
+                                      ),
+                                      Container(
+                                        margin:
+                                            EdgeInsets.only(top: 32, left: 90),
+                                        child: Text('Rp. 500.000.000'),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 154),
+                                child: LinearPercentIndicator(
+                                  width: 302.0,
+                                  lineHeight: 15.0,
+                                  percent: 0.5,
+                                  animation: true,
+                                  progressColor: BasePalette.primary,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
