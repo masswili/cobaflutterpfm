@@ -140,11 +140,11 @@ class _MainViewState extends State<MainView> {
             header: SideNavigationBarHeader(
                 image: Image.asset(
                   "assets/images/Logo-Bank-BNI-PNG.png",
-                  height: 50,
-                  width: 70,
+                  height: 70,
+                  width: 200,
                 ),
                 title: const Text(
-                  'Personal Finance Management',
+                  '',
                   style: TextStyle(color: Colors.white),
                 ),
                 subtitle: const Text("")),
