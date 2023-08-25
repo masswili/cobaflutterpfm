@@ -41,12 +41,14 @@ dependencies:
   intl: ^0.17.0
   colorize_text_avatar: ^1.0.2
   provider: ^6.0.5
-  fl_chart: ^0.40.0
+  fl_chart: ^0.63.0
   flutter_svg: ^2.0.7
   side_navigation: ^1.0.4
-  pie_chart: ^5.3.2
+  pie_chart: ^5.0.0
   syncfusion_flutter_gauges: ^21.1.37
   charts_flutter: ^0.12.0 
+  data_table_2: ^2.2.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -105,6 +107,9 @@ flutter:
     - assets/icons/Search.svg
     - assets/icons/unknown.svg
     - assets/images/Profile.jpeg
+    - assets/images/BNI_Promote.jpg
+    - assets/images/BNI_Promote(2).jpg
+    - assets/images/BNI_Promote(3).png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

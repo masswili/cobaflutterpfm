@@ -1,54 +1,72 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-
 class AdsBox extends StatefulWidget {
-  const AdsBox({super.key});
+  const AdsBox({Key? key}) : super(key: key);
 
   @override
   State<AdsBox> createState() => _AdsBoxState();
 }
 
 class _AdsBoxState extends State<AdsBox> {
+  final PageController _pageController = PageController(initialPage: 0);
+  List<String> imagePaths = [
+    "assets/images/BNI_Promote.jpg",
+    "assets/images/BNI_Promote(2).jpg",
+    "assets/images/BNI_Promote(3).png",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+        ),
         height: 200,
-        margin: EdgeInsets.all(8),
-        child: Column(
+        margin: const EdgeInsets.all(8),
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            const Expanded(
-              flex: 5,
-              child: Text('2'),
+            PageView.builder(
+              controller: _pageController,
+              itemCount: imagePaths.length,
+              itemBuilder: (context, index) {
+                return Image.asset(
+                  imagePaths[index],
+                  fit: BoxFit.cover,
+                  width: double.infinity, // Mengisi lebar kontainer
+                  height: double.infinity, // Mengisi tinggi kontainer
+                );
+              },
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('View Details'),
-                      Icon(Icons.arrow_circle_right)
-                    ],
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: BasePalette.menuCar,
-                    onPrimary: Colors.white,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.zero,
-                        bottom: Radius.circular(5),
-                      ),
-                    ),
-                  ),
-                ),
+            Positioned(
+              left: 16, // Posisi tanda panah kiri
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  if (_pageController.page != 0) {
+                    _pageController.previousPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                    );
+                  }
+                },
+              ),
+            ),
+            Positioned(
+              right: 16, // Posisi tanda panah kanan
+              child: IconButton(
+                icon: Icon(Icons.arrow_forward),
+                onPressed: () {
+                  if (_pageController.page != imagePaths.length - 1) {
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                    );
+                  }
+                },
               ),
             ),
           ],

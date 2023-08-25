@@ -1,27 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:data_table_2/data_table_2.dart';
 
 import '../../constants.dart';
+import '../../datatable/datatable.dart';
 
 class ActivityBox extends StatefulWidget {
-  const ActivityBox({super.key});
+  const ActivityBox({Key? key}) : super(key: key);
 
   @override
   State<ActivityBox> createState() => _ActivityBoxState();
 }
 
 class _ActivityBoxState extends State<ActivityBox> {
+  final List<DataRow> _dataRows = List<DataRow>.generate(
+    100, // Ganti dengan jumlah data Anda
+    (int index) => DataRow(
+      cells: [
+        DataCell(Text('Data $index')),
+        DataCell(Text('Data ${index + 1}')),
+        DataCell(Text('Data ${index + 2}')),
+      ],
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 5,
       child: Container(
         decoration: BoxDecoration(
-            color: BasePalette.green, borderRadius: BorderRadius.circular(5)),
+          color: BasePalette.green,
+          borderRadius: BorderRadius.circular(5),
+        ),
         height: 250,
         margin: EdgeInsets.all(8),
-        child: const Column(
+        child: Column(
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Row(
@@ -39,8 +54,25 @@ class _ActivityBoxState extends State<ActivityBox> {
             ),
             Expanded(
               flex: 5,
-              child: Stack(
-                children: [Text('Isian')],
+              child: PaginatedDataTable2(
+                columns: [
+                  DataColumn2(
+                    label: const Text('Kol 1'),
+                    size: ColumnSize.L,
+                    onSort: (int columnIndex, bool ascending) {},
+                  ),
+                  DataColumn2(
+                    label: const Text('Kol 2'),
+                    size: ColumnSize.L,
+                    onSort: (int columnIndex, bool ascending) {},
+                  ),
+                  DataColumn2(
+                    label: const Text('Kol 3'),
+                    size: ColumnSize.L,
+                    onSort: (int columnIndex, bool ascending) {},
+                  ),
+                ],
+                source: MyDataTableSource(_dataRows),
               ),
             ),
           ],
