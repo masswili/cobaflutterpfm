@@ -60,6 +60,67 @@ class _BudgetPageState extends State<BudgetPage> {
                               color: Colors.black,
                             ),
                           ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32, left: 32),
+                                        height: 60,
+                                        width: 60,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/Logo-Bank-BNI-PNG.png'),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                              color: Colors.black,
+                                            ),
+                                            borderRadius: BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 8, left: 32),
+                                        child: Text('Budget'),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32, left: 80),
+                                        child: Text('Base'),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32, left: 80),
+                                        child: Text('Sisa'),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32, left: 150),
+                                        child: Text('Rp. 1.000.000.000'),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32, left: 150),
+                                        child: Text('Rp. 500.000.000'),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -128,31 +189,31 @@ class _BudgetPageState extends State<BudgetPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16, right: 16, left: 16, bottom: 8),
+              padding: const EdgeInsets.only(
+                  top: 16, right: 16, left: 16, bottom: 8),
               child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 4,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 4,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 32,
                     mainAxisSpacing: 32,
-                    childAspectRatio: 1
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      elevation: 10,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
+                    childAspectRatio: 1),
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    elevation: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: Colors.black,
                         ),
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

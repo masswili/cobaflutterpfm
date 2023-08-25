@@ -11,6 +11,31 @@ class FinancialAccountsPage extends StatefulWidget {
 class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
   int count = 15;
 
+  late Text nominalTextWidget;
+  int nominal = 10000;
+
+  @override
+  void initState() {
+    if (nominal > 0) {
+      nominalTextWidget = Text(
+        'Rp. ' + nominal.toString(),
+        style: TextStyle(
+          color: Colors.green
+        ),
+      );
+    }
+    else {
+        nominalTextWidget = Text(
+        'Rp. ' + nominal.toString(),
+        style: TextStyle(
+          color: Colors.red
+        ),
+      );
+    }
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +89,8 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16, right: 16, left: 16, bottom: 8),
+              padding: const EdgeInsets.only(
+                  top: 16, right: 16, left: 16, bottom: 8),
               child: GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
@@ -89,9 +115,9 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              height: 80,
-                              width: 80,
-                              padding: EdgeInsets.only(top: 32, bottom: 8),
+                              margin: EdgeInsets.only(top: 24),
+                              height: 50,
+                              width: 50,
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
@@ -116,15 +142,11 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 8, bottom: 15),
-                              child: Text(
-                                'Rp. 500.000.000',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
+                              padding: EdgeInsets.only(top: 8, bottom: 8),
+                              child: nominalTextWidget
                             ),
                             Card(
+                              margin: EdgeInsets.only(top: 16),
                               elevation: 5,
                               child: Container(
                                 height: 25,
