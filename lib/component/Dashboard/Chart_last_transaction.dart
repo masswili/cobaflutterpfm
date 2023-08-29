@@ -55,6 +55,7 @@ class _ActivityBoxState extends State<ActivityBox> {
             Expanded(
               flex: 5,
               child: PaginatedDataTable2(
+                hidePaginator: true,
                 columns: [
                   DataColumn2(
                     label: const Text('Kol 1'),
@@ -75,6 +76,27 @@ class _ActivityBoxState extends State<ActivityBox> {
                 source: MyDataTableSource(_dataRows),
               ),
             ),
+            Positioned(
+              bottom: 15,
+              child: ElevatedButton(
+                onPressed: () {
+                  //
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                ),
+                child: const Text(
+                  "Detail",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            )
           ],
         ),
       ),

@@ -30,28 +30,19 @@ class _ChartBoxState extends State<ChartBox> {
               child: Center(
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          // Icon(
-                          //   Icons.attach_money,
-                          //   size: 20,
-                          //   color: Color(0xFFFFFFFF),
-                          // ),
-                          // SizedBox(width: 8),
-                          Text(
-                            'Panel Pemasukan Pengeluaran',
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
                     SizedBox(
-                      height: 50,
-                    )
+                      height: 10,
+                    ),
+                    Text(
+                      'Pemasukan dan Pengeluaran',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ],
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Expanded(
               flex: 5,
@@ -59,16 +50,25 @@ class _ChartBoxState extends State<ChartBox> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    Column(
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Center(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: SizedBox(
-                                  width: 100,
-                                  height: 100,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Pemasukan',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: 90,
+                                  height: 90,
                                   child: SfRadialGauge(
                                     axes: <RadialAxis>[
                                       RadialAxis(
@@ -93,51 +93,52 @@ class _ChartBoxState extends State<ChartBox> {
                                             color: Colors.green,
                                           ),
                                         ],
-                                        pointers: <GaugePointer>[
-                                          NeedlePointer(value: 75),
+                                        pointers: const <GaugePointer>[
+                                          NeedlePointer(value: 80),
                                         ],
                                       ),
                                     ],
                                   ),
                                 ),
-                              ),
-                              const Expanded(
-                                child: Text(
-                                  'Pemasukan',
+                                const Column(
+                                  children: [
+                                    Text(
+                                      "100%",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_circle_up,
+                                          color:
+                                              Color.fromARGB(255, 16, 128, 20),
+                                        ),
+                                        Text(
+                                          "Rp. 1.000.000.000",
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 16, 128, 20),
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Pengeluaran',
                                   style: TextStyle(color: Colors.white),
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                        // const Expanded(
-                        //   child: SizedBox(
-                        //     height: 100,
-                        //     child: Column(
-                        //       children: [
-                        //         Text(
-                        //           "Net Worth: Rp. 100,000",
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //         Text(
-                        //           "Cash: Rp. 200,000",
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //         Text(
-                        //           "Debt: Rp. 800,000",
-                        //           style: TextStyle(color: Colors.white),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ),
-                        Center(
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: SizedBox(
-                                  width: 100,
-                                  height: 100,
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  width: 90,
+                                  height: 90,
                                   child: SfRadialGauge(
                                     axes: <RadialAxis>[
                                       RadialAxis(
@@ -162,24 +163,50 @@ class _ChartBoxState extends State<ChartBox> {
                                             color: Colors.green,
                                           ),
                                         ],
-                                        pointers: <GaugePointer>[
+                                        pointers: const <GaugePointer>[
                                           NeedlePointer(value: 45),
                                         ],
                                       ),
                                     ],
                                   ),
                                 ),
-                              ),
-                              const Expanded(
-                                child: Text(
-                                  "Pengeluaran",
-                                  style: TextStyle(color: Colors.white),
+                                const Column(
+                                  children: [
+                                    Text(
+                                      "100%",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_circle_down,
+                                          color: Colors.red,
+                                        ),
+                                        Text(
+                                          "Rp. 1.000.000.000",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
+                    ),
+                    const Positioned(
+                      bottom: 17,
+                      child: Text(
+                        "Sisa Keuangan : 12345678",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),

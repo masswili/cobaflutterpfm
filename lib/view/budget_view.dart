@@ -16,8 +16,8 @@ class _BudgetPageState extends State<BudgetPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   border: Border(
@@ -139,13 +139,12 @@ class _BudgetPageState extends State<BudgetPage> {
                               Row(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(left: 142, top: 8),
-                                    child: Text('Terpakai')
-                                    ),
+                                      margin:
+                                          EdgeInsets.only(left: 142, top: 8),
+                                      child: Text('Terpakai')),
                                   Container(
-                                    margin: EdgeInsets.only(left: 32, top: 8),
-                                    child: Text('Rp. 500.000.000')
-                                    ),
+                                      margin: EdgeInsets.only(left: 32, top: 8),
+                                      child: Text('Rp. 500.000.000')),
                                 ],
                               ),
                             ],
@@ -203,8 +202,7 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32),
+                                        margin: EdgeInsets.only(top: 32),
                                         child: Text('Base'),
                                       ),
                                       Container(
