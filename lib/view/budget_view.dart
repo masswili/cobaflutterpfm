@@ -46,12 +46,12 @@ class _BudgetPageState extends State<BudgetPage> {
               ),
             ),
             Padding(
-                padding: const EdgeInsets.only(top: 16, right: 16, left: 16),
+                padding: const EdgeInsets.only(top: 16, right: 8, left: 8),
                 child: Row(
                   children: [
                     Expanded(
+                      flex: 1,
                       child: Card(
-                        margin: EdgeInsets.only(right: 20),
                         elevation: 10,
                         child: Container(
                           height: 200,
@@ -61,91 +61,112 @@ class _BudgetPageState extends State<BudgetPage> {
                               color: Colors.black,
                             ),
                           ),
-                          child: Column(
+                          child: Row(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 32),
-                                        height: 60,
-                                        width: 60,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/Logo-Bank-BNI-PNG.png'),
-                                              fit: BoxFit.fill,
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.black,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
+                              Container(
+                                margin: EdgeInsets.only(top: 32, left: 32),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/Logo-Bank-BNI-PNG.png'),
+                                            fit: BoxFit.fill,
                                           ),
+                                          border: Border.all(
+                                            color: Colors.black,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 8, left: 32),
-                                        child: Text('Budget'),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 48),
-                                        child: Text('Base'),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 48),
-                                        child: Text('Sisa'),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 130),
-                                        child: Text('Rp. 1.000.000.000'),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 130),
-                                        child: Text('Rp. 500.000.000'),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 132),
-                                child: LinearPercentIndicator(
-                                  width: 292.0,
-                                  lineHeight: 15.0,
-                                  percent: 0.5,
-                                  animation: true,
-                                  progressColor: BasePalette.primary,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 8),
+                                      child: Text('Budget'),
+                                    )
+                                  ],
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  Container(
-                                      margin:
-                                          EdgeInsets.only(left: 142, top: 8),
-                                      child: Text('Terpakai')),
-                                  Container(
-                                      margin: EdgeInsets.only(left: 32, top: 8),
-                                      child: Text('Rp. 500.000.000')),
-                                ],
+                              Container(
+                                margin: EdgeInsets.only(top: 32, left: 48),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                child: Text('Base'),
+                                              ),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(top: 32),
+                                                child: Text('Sisa'),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 150),
+                                                child:
+                                                    Text('Rp. 1.000.000.000'),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    top: 32, left: 150),
+                                                child: Text('Rp. 500.000.000'),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 16),
+                                      child: Row(
+                                        children: [
+                                          LinearPercentIndicator(
+                                            padding: EdgeInsets.all(0),
+                                            width: 298.0,
+                                            lineHeight: 15.0,
+                                            percent: 0.5,
+                                            animation: true,
+                                            progressColor: BasePalette.primary,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text('50%'),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            child: Text('Terpakai'),
+                                          ),
+                                          Container(
+                                              margin: EdgeInsets.only(left: 32),
+                                              child: Text('Rp. 500.000.000')),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -153,8 +174,8 @@ class _BudgetPageState extends State<BudgetPage> {
                       ),
                     ),
                     Expanded(
+                      flex: 1,
                       child: Card(
-                        margin: EdgeInsets.only(left: 20),
                         elevation: 10,
                         child: Container(
                           height: 200,
@@ -164,78 +185,110 @@ class _BudgetPageState extends State<BudgetPage> {
                               color: Colors.black,
                             ),
                           ),
-                          child: Column(
+                          child: Row(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 32),
-                                        height: 60,
-                                        width: 60,
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/Logo-Bank-BNI-PNG.png'),
-                                              fit: BoxFit.fill,
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.black,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
+                              Container(
+                                margin: EdgeInsets.only(top: 32, left: 32),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/Logo-Bank-BNI-PNG.png'),
+                                            fit: BoxFit.fill,
                                           ),
+                                          border: Border.all(
+                                            color: Colors.black,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 8, left: 36),
-                                        child: Text('Pemasukan'),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.only(top: 32),
-                                        child: Text('Base'),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 54),
-                                        child: Text('Total Income'),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 90),
-                                        child: Text('Rp. 1.000.000.000'),
-                                      ),
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 90),
-                                        child: Text('Rp. 500.000.000'),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 8),
+                                      child: Text('Pemasukan'),
+                                    )
+                                  ],
+                                ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 154),
-                                child: LinearPercentIndicator(
-                                  width: 302.0,
-                                  lineHeight: 15.0,
-                                  percent: 0.5,
-                                  animation: true,
-                                  progressColor: BasePalette.primary,
+                                margin: EdgeInsets.only(top: 32, left: 48),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                child: Text('Base'),
+                                              ),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(top: 32),
+                                                child: Text('Total Income'),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 100),
+                                                child:
+                                                    Text('Rp. 1.000.000.000'),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    top: 32, left: 100),
+                                                child: Text('Rp. 500.000.000'),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 16),
+                                      child: Row(
+                                        children: [
+                                          LinearPercentIndicator(
+                                            padding: EdgeInsets.all(0),
+                                            width: 298.0,
+                                            lineHeight: 15.0,
+                                            percent: 0.5,
+                                            animation: true,
+                                            progressColor: BasePalette.primary,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text('50%'),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            child: Text('Persentase pemasukan'),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -312,6 +365,172 @@ class _BudgetPageState extends State<BudgetPage> {
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           color: Colors.black,
+                        ),
+                      ),
+                      child: Container(
+                        margin: EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 60,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/Logo-Bank-BNI-PNG.png'),
+                                        fit: BoxFit.fill,
+                                      ),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                      ),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    margin: EdgeInsets.only(top: 28, left: 16),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          child: Text(
+                                            'Makanan & Minuman',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(top: 45),
+                                          child: Align(
+                                            alignment: Alignment.centerRight,
+                                            child: LinearPercentIndicator(
+                                              padding: EdgeInsets.all(0),
+                                              lineHeight: 15.0,
+                                              percent: 0.5,
+                                              animation: true,
+                                              progressColor: BasePalette.primary,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        child: Text('Sisa budget'),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32),
+                                        child: Text('pengeluaran'),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32),
+                                        child: Text('Total budget'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    margin: EdgeInsets.only(top: 20),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          child: Text('Rp. 500.000.000'),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(top: 32),
+                                          child: Text('Rp. 500.000.000'),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(top: 32),
+                                          child: Text('Rp. 1.000.000.000'),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Card(
+                                margin: EdgeInsets.only(top: 40),
+                                elevation: 5,
+                                child: Container(
+                                  height: 25,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                    color: Colors.black,
+                                  )),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 73,
+                                        height: 25,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  BasePalette.primary,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(0))),
+                                          child: const Text(
+                                            "EDIT",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 75,
+                                        height: 25,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(0))),
+                                          child: const Text(
+                                            "DETAIL",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ),

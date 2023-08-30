@@ -19,17 +19,12 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
     if (nominal > 0) {
       nominalTextWidget = Text(
         'Rp. ' + nominal.toString(),
-        style: TextStyle(
-          color: Colors.green
-        ),
+        style: TextStyle(color: Colors.green),
       );
-    }
-    else {
-        nominalTextWidget = Text(
+    } else {
+      nominalTextWidget = Text(
         'Rp. ' + nominal.toString(),
-        style: TextStyle(
-          color: Colors.red
-        ),
+        style: TextStyle(color: Colors.red),
       );
     }
     // TODO: implement initState
@@ -115,7 +110,16 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 24),
+                              margin: EdgeInsets.only(top: 8),
+                              child: Text(
+                                'BANK',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 8),
                               height: 50,
                               width: 50,
                               child: DecoratedBox(
@@ -142,11 +146,10 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 8, bottom: 8),
-                              child: nominalTextWidget
-                            ),
+                                padding: EdgeInsets.only(top: 8, bottom: 8),
+                                child: nominalTextWidget),
                             Card(
-                              margin: EdgeInsets.only(top: 16),
+                              margin: EdgeInsets.only(top: 6),
                               elevation: 5,
                               child: Container(
                                 height: 25,
