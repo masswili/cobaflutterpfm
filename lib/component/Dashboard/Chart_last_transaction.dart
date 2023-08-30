@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:data_table_2/data_table_2.dart';
 
 import '../../constants.dart';
-import '../../datatable/datatable.dart';
+import '../../datatable/datatable_last_transaction.dart';
 
 class ActivityBox extends StatefulWidget {
   const ActivityBox({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class ActivityBox extends StatefulWidget {
 
 class _ActivityBoxState extends State<ActivityBox> {
   final List<DataRow> _dataRows = List<DataRow>.generate(
-    100, // Ganti dengan jumlah data Anda
+    100,
     (int index) => DataRow(
       cells: [
         DataCell(Text('Data $index')),

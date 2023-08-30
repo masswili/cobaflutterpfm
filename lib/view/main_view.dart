@@ -1,6 +1,7 @@
 import 'package:cobaflutterpfm/view/budget_view.dart';
 import 'package:cobaflutterpfm/view/dashboard_view.dart';
 import 'package:cobaflutterpfm/view/financial_accounts_view.dart';
+import 'package:cobaflutterpfm/view/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
@@ -16,9 +17,7 @@ class _MainViewState extends State<MainView> {
     DashboardScreen(),
     FinancialAccountsPage(),
     BudgetPage(),
-    const Center(
-      child: Text('Tranksaksi'),
-    ),
+    Transactionpage(),
   ];
 
   int selectedIndex = 0;

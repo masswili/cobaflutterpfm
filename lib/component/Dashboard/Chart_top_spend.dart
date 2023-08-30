@@ -4,7 +4,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 class BarMmodel {
   final String year;
   final int value;
-  final charts.Color color; // Use charts.Color
+  final charts.Color color;
 
   BarMmodel(this.year, this.value, this.color);
 }
@@ -17,21 +17,21 @@ class SpendBox extends StatefulWidget {
 
   static List<charts.Series<BarMmodel, String>> _createSampleData() {
     final data = [
-      BarMmodel(
-          "2016", 20, charts.Color.fromHex(code: '#FF0000')), // Example color
-      BarMmodel("2017", 23, charts.Color.fromHex(code: '#0000FF')),
-      BarMmodel("2018", 29, charts.Color.fromHex(code: '#00FF00')),
-      BarMmodel("2019", 30, charts.Color.fromHex(code: '#FFA500')),
-      BarMmodel("2020", 29, charts.Color.fromHex(code: '#800080')),
-      BarMmodel("2021", 23, charts.Color.fromHex(code: '#FFFF00')),
+      BarMmodel("Iss Ashmore", 20, charts.Color.fromHex(code: '#FF0000')),
+      BarMmodel("Iss Ashless", 23, charts.Color.fromHex(code: '#0000FF')),
+      BarMmodel("Iss Ashshow", 29, charts.Color.fromHex(code: '#00FF00')),
+      BarMmodel("Iss Ashmwdq", 30, charts.Color.fromHex(code: '#FFA500')),
+      BarMmodel("Iss Ashmsda", 29, charts.Color.fromHex(code: '#800080')),
     ];
+
     return [
       charts.Series<BarMmodel, String>(
         data: data,
-        id: 'sales',
         colorFn: (BarMmodel barModel, _) => barModel.color,
         domainFn: (BarMmodel barModel, _) => barModel.year,
         measureFn: (BarMmodel barModel, _) => barModel.value,
+        id: 'Value',
+        displayName: 'Value',
       )
     ];
   }
@@ -44,7 +44,7 @@ class _SpendBoxState extends State<SpendBox> {
       flex: 5,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blue, // Change to the desired background color
+          color: Colors.blue,
           borderRadius: BorderRadius.circular(5),
         ),
         height: 250,
@@ -72,20 +72,21 @@ class _SpendBoxState extends State<SpendBox> {
               flex: 5,
               child: Center(
                 child: SizedBox(
-                  width: 400,
+                  height: 200,
+                  width: 300, // Sesuaikan dengan kebutuhan Anda
                   child: charts.BarChart(
                     SpendBox._createSampleData(),
                     animate: true,
                     domainAxis: const charts.OrdinalAxisSpec(
                       renderSpec: charts.SmallTickRendererSpec(
-                        labelRotation: 45,
+                        // Mengatur penampilan label di sumbu X
+                        labelStyle: charts.TextStyleSpec(
+                          fontSize: 10, // Ukuran font label
+                          color: charts.MaterialPalette.black,
+                        ),
+                        labelRotation: 45, // Rotasi label sebesar 45 derajat
                       ),
                     ),
-                    behaviors: [
-                      charts.LinePointHighlighter(
-                        symbolRenderer: CustomSymbolRenderer(),
-                      ),
-                    ],
                     primaryMeasureAxis: const charts.NumericAxisSpec(
                       tickProviderSpec: charts.BasicNumericTickProviderSpec(
                         dataIsInWholeNumbers: true,
@@ -98,6 +99,29 @@ class _SpendBoxState extends State<SpendBox> {
                         labelAnchor: charts.TickLabelAnchor.centered,
                       ),
                     ),
+                    customSeriesRenderers: [
+                      charts.BarRendererConfig(
+                        groupingType: charts.BarGroupingType.stacked,
+                        strokeWidthPx: 1.0,
+                      ),
+                    ],
+                    behaviors: [
+                      // Menambahkan label nominal di atas batang
+                      charts.SeriesLegend(
+                        desiredMaxColumns: 2,
+                        entryTextStyle: charts.TextStyleSpec(
+                          fontSize: 12, // Ukuran font label nominal
+                        ),
+                      ),
+                      // Menambahkan tooltip behavior
+                      charts.ChartTitle(
+                        'Value',
+                        behaviorPosition: charts.BehaviorPosition.top,
+                        titleOutsideJustification:
+                            charts.OutsideJustification.middleDrawArea,
+                      ),
+                    ],
+                    defaultInteractions: false,
                   ),
                 ),
               ),
@@ -106,42 +130,6 @@ class _SpendBoxState extends State<SpendBox> {
         ),
       ),
     );
-  }
-}
-
-class CustomSymbolRenderer extends charts.CustomSymbolRenderer {
-  Widget buildResult(BuildContext context,
-      {List<charts.SeriesDatum<dynamic>>? seriesDatum,
-      int? datumIndex,
-      bool? isSelection}) {
-    // final color = seriesDatum![0].series.colorFn!(
-    //   seriesDatum[0].datum as int?,
-    // ); // Get the color from series
-
-    return Column(
-      children: [
-        const Icon(
-          Icons.circle,
-          size: 50.0,
-          color: Colors.black,
-        ),
-        Text(
-          (seriesDatum?[0].datum as BarMmodel).value.toString(),
-          style: TextStyle(
-            color: Colors.blue,
-            fontWeight: isSelection != null && isSelection
-                ? FontWeight.bold
-                : FontWeight.normal,
-          ),
-        ),
-      ],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context,
-      {Color? color, required Size size, bool enabled = true}) {
-    throw UnimplementedError();
   }
 }
 

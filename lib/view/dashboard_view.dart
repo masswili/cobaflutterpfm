@@ -22,18 +22,67 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color.fromARGB(255, 238, 238, 238),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        left: 8,
+                        top: 16,
+                        right: 8,
+                        bottom: 8,
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'DASHBOARD',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(50, 50),
+                            backgroundColor: Colors.blue,
+                          ),
+                          child: const Text(
+                            "FILTER CALENDAR",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const Row(
               children: [ChartBox(), SpendBox(), ActivityBox()],
             ),
-            Row(
+            const Row(
               children: [AccountBox(), PaymentBox(), UpcomingPaymentBox()],
             ),
-            Row(
+            const Row(
               children: [AdsBox()],
             ),
           ],

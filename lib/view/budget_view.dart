@@ -90,8 +90,8 @@ class _BudgetPageState extends State<BudgetPage> {
                                         ),
                                       ),
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 8, left: 32),
+                                        margin: const EdgeInsets.only(
+                                            top: 8, left: 32),
                                         child: Text('Budget'),
                                       )
                                     ],
@@ -99,13 +99,13 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 48),
+                                        margin: const EdgeInsets.only(
+                                            top: 32, left: 48),
                                         child: Text('Base'),
                                       ),
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 48),
+                                        margin: const EdgeInsets.only(
+                                            top: 32, left: 48),
                                         child: Text('Sisa'),
                                       )
                                     ],
@@ -113,13 +113,13 @@ class _BudgetPageState extends State<BudgetPage> {
                                   Column(
                                     children: [
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 130),
+                                        margin: const EdgeInsets.only(
+                                            top: 32, left: 130),
                                         child: Text('Rp. 1.000.000.000'),
                                       ),
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(top: 32, left: 130),
+                                        margin: const EdgeInsets.only(
+                                            top: 32, left: 130),
                                         child: Text('Rp. 500.000.000'),
                                       )
                                     ],
