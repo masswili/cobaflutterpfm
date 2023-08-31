@@ -1,6 +1,8 @@
 import 'package:cobaflutterpfm/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../dialog/financial_accounts_dialog.dart';
+
 class FinancialAccountsPage extends StatefulWidget {
   const FinancialAccountsPage({super.key});
 
@@ -67,7 +69,9 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            FinancialAccountsDialog(context, "ADD");
+                          },
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(50, 50),
                             backgroundColor: BasePalette.primary,
@@ -110,7 +114,7 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 8),
+                              margin: EdgeInsets.only(top: 16),
                               child: Text(
                                 'BANK',
                                 style: TextStyle(
@@ -146,60 +150,70 @@ class _FinancialAccountsPageState extends State<FinancialAccountsPage> {
                               ),
                             ),
                             Padding(
-                                padding: EdgeInsets.only(top: 8, bottom: 8),
+                                padding: EdgeInsets.only(bottom: 8),
                                 child: nominalTextWidget),
-                            Card(
-                              margin: EdgeInsets.only(top: 6),
-                              elevation: 5,
-                              child: Container(
-                                height: 25,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                  color: Colors.black,
-                                )),
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 73,
-                                      height: 25,
-                                      child: ElevatedButton(
-                                        onPressed: () {},
-                                        style: ElevatedButton.styleFrom(
-                                            backgroundColor:
-                                                BasePalette.primary,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(0))),
-                                        child: const Text(
-                                          "EDIT",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Card(
+                                  margin: EdgeInsets.only(bottom: 16),
+                                  elevation: 5,
+                                  child: Container(
+                                    height: 25,
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                      color: Colors.black,
+                                    )),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 73,
+                                          height: 25,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              FinancialAccountsDialog(
+                                                  context, "EDIT");
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    BasePalette.primary,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0))),
+                                            child: const Text(
+                                              "EDIT",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 75,
-                                      height: 25,
-                                      child: ElevatedButton(
-                                        onPressed: () {},
-                                        style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(0))),
-                                        child: const Text(
-                                          "DELETE",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 12,
+                                        SizedBox(
+                                          width: 75,
+                                          height: 25,
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0))),
+                                            child: const Text(
+                                              "DELETE",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 12,
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             )
