@@ -476,7 +476,7 @@ class _BudgetPageState extends State<BudgetPage> {
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Card(
-                                margin: EdgeInsets.only(top: 40),
+                                margin: EdgeInsets.only(top: 10),
                                 elevation: 5,
                                 child: Container(
                                   height: 25,

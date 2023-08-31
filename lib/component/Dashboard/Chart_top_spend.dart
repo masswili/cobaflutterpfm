@@ -73,18 +73,17 @@ class _SpendBoxState extends State<SpendBox> {
               child: Center(
                 child: SizedBox(
                   height: 200,
-                  width: 300, // Sesuaikan dengan kebutuhan Anda
+                  width: 300,
                   child: charts.BarChart(
                     SpendBox._createSampleData(),
                     animate: true,
                     domainAxis: const charts.OrdinalAxisSpec(
                       renderSpec: charts.SmallTickRendererSpec(
-                        // Mengatur penampilan label di sumbu X
                         labelStyle: charts.TextStyleSpec(
-                          fontSize: 10, // Ukuran font label
+                          fontSize: 10,
                           color: charts.MaterialPalette.black,
                         ),
-                        labelRotation: 45, // Rotasi label sebesar 45 derajat
+                        labelRotation: 45,
                       ),
                     ),
                     primaryMeasureAxis: const charts.NumericAxisSpec(
@@ -106,22 +105,20 @@ class _SpendBoxState extends State<SpendBox> {
                       ),
                     ],
                     behaviors: [
-                      // Menambahkan label nominal di atas batang
-                      charts.SeriesLegend(
-                        desiredMaxColumns: 2,
-                        entryTextStyle: charts.TextStyleSpec(
-                          fontSize: 12, // Ukuran font label nominal
-                        ),
-                      ),
-                      // Menambahkan tooltip behavior
                       charts.ChartTitle(
-                        'Value',
+                        '',
                         behaviorPosition: charts.BehaviorPosition.top,
                         titleOutsideJustification:
                             charts.OutsideJustification.middleDrawArea,
                       ),
                     ],
-                    defaultInteractions: false,
+                    // Menambahkan interaksi dengan grafik
+                    selectionModels: [
+                      charts.SelectionModelConfig(
+                        type: charts.SelectionModelType.info,
+                        changedListener: _onSelectionChanged,
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -130,6 +127,32 @@ class _SpendBoxState extends State<SpendBox> {
         ),
       ),
     );
+  }
+
+  void _onSelectionChanged(charts.SelectionModel model) {
+    final selectedDatum = model.selectedDatum;
+
+    if (selectedDatum.isNotEmpty) {
+      final value = selectedDatum.first.datum.value;
+
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Value'),
+            content: Text('Value: $value'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 }
 

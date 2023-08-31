@@ -20,6 +20,22 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  DateTime? _selectedDate;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime picked = (await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    ))!;
+
+    if (picked != null && picked != _selectedDate)
+      setState(() {
+        _selectedDate = picked;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,14 +75,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {},
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            _selectDate(context);
+                          },
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(50, 50),
                             backgroundColor: Colors.blue,
                           ),
-                          child: const Text(
-                            "FILTER CALENDAR",
+                          icon: const Icon(
+                            Icons.calendar_today,
+                            color: Colors.white,
+                          ),
+                          label: const Text(
+                            "FILTER BY DATE",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -90,4 +112,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: DashboardScreen(),
+  ));
 }

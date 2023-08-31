@@ -1,9 +1,16 @@
-import 'package:cobaflutterpfm/view/budget_view.dart';
-import 'package:cobaflutterpfm/view/dashboard_view.dart';
-import 'package:cobaflutterpfm/view/financial_accounts_view.dart';
-import 'package:cobaflutterpfm/view/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
+
+import 'budget_view.dart';
+import 'dashboard_view.dart';
+import 'financial_accounts_view.dart';
+import 'transaction.dart';
+
+void main() {
+  runApp(const MaterialApp(
+    home: MainView(),
+  ));
+}
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -13,16 +20,68 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
+  TextEditingController _textFieldController = TextEditingController();
+  String _dummyData = ""; // Data dummy yang akan ditampilkan
+
+  void _showProfileModal() {
+    showDialog(
+      context: context,
+      barrierDismissible:
+          false, // Modal hanya dapat ditutup dengan tombol "Tutup"
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Profile'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _textFieldController,
+                decoration: InputDecoration(labelText: 'Input Data'),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _dummyData = _textFieldController.text;
+                  });
+                  Navigator.of(context).pop();
+                },
+                child: Text('Simpan'),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Tutup'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _textFieldController.dispose(); // Pastikan untuk membebaskan controller
+    super.dispose();
+  }
+
+  bool _isProfileModalVisible = false;
+
   List<Widget> views = [
     DashboardScreen(),
-    FinancialAccountsPage(),
-    BudgetPage(),
-    Transactionpage(),
+    const FinancialAccountsPage(),
+    const BudgetPage(),
+    const Transactionpage(),
   ];
 
   int selectedIndex = 0;
   bool isSearching = false;
-  // TextEditingController searchController = TextEditingController();
 
   final List<String> notifications = [
     "Notification 1",
@@ -37,12 +96,11 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(56.0), // Tinggi AppBar
+        preferredSize: const Size.fromHeight(56.0),
         child: AppBar(
           backgroundColor: const Color.fromARGB(255, 34, 34, 34),
           title: isSearching
               ? const TextField(
-                  // controller: searchController,
                   decoration: InputDecoration(
                     hintText: 'Search...',
                     hintStyle: TextStyle(color: Colors.white),
@@ -60,7 +118,6 @@ class _MainViewState extends State<MainView> {
                     onPressed: () {
                       setState(() {
                         isSearching = false;
-                        // searchController.clear();
                       });
                     },
                   )
@@ -76,7 +133,6 @@ class _MainViewState extends State<MainView> {
               icon: const Icon(Icons.notifications),
               offset: const Offset(0, 40),
               onSelected: (String value) {
-                // Logika
                 print("Notifikasi dipilih: $value");
               },
               itemBuilder: (BuildContext context) {
@@ -95,9 +151,11 @@ class _MainViewState extends State<MainView> {
                   value: 'profile',
                   child: ListTile(
                     leading: const Icon(Icons.person),
-                    title: const Text('Profile Page'),
-                    subtitle:
-                        Text('$username\n$email'), // Menampilkan nama dan email
+                    title: const Text('Profile'),
+                    subtitle: Text('$username\n$email'),
+                    onTap: () {
+                      _showProfileModal();
+                    },
                   ),
                 ),
                 const PopupMenuItem<String>(
@@ -110,23 +168,20 @@ class _MainViewState extends State<MainView> {
               ],
               onSelected: (String value) {
                 if (value == 'profile') {
-                  // Tambahkan logika untuk tautan ke halaman profil
-                  print('Pergi ke halaman profil');
+                  _showProfileModal();
                 } else if (value == 'logout') {
-                  // Tambahkan logika untuk logout
                   print('Logout');
                 }
               },
               child: const Row(
                 children: [
                   CircleAvatar(
-                    // Ikon pengguna (profil)
                     backgroundImage: NetworkImage(
                       "assets/images/Profile.jpeg",
                     ),
                   ),
-                  SizedBox(width: 8), // Spasi antara ikon dan nama
-                  Icon(Icons.keyboard_arrow_down), // Panah ke bawah
+                  SizedBox(width: 8),
+                  Icon(Icons.keyboard_arrow_down),
                 ],
               ),
             ),
