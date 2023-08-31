@@ -472,60 +472,61 @@ class _BudgetPageState extends State<BudgetPage> {
                                 ),
                               ],
                             ),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Card(
-                                margin: EdgeInsets.only(top: 40),
-                                elevation: 5,
-                                child: Container(
-                                  height: 25,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                    color: Colors.black,
-                                  )),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 73,
-                                        height: 25,
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                              backgroundColor:
-                                                  BasePalette.primary,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(0))),
-                                          child: const Text(
-                                            "EDIT",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12,
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomRight,
+                                child: Card(
+                                  elevation: 5,
+                                  child: Container(
+                                    height: 25,
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                      color: Colors.black,
+                                    )),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 73,
+                                          height: 25,
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    BasePalette.primary,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(0))),
+                                            child: const Text(
+                                              "EDIT",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        width: 75,
-                                        height: 25,
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.white,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(0))),
-                                          child: const Text(
-                                            "DETAIL",
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 12,
+                                        SizedBox(
+                                          width: 75,
+                                          height: 25,
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(0))),
+                                            child: const Text(
+                                              "DETAIL",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 12,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
