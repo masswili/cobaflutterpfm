@@ -3,6 +3,7 @@ import 'package:data_table_2/data_table_2.dart';
 
 import '../../constants.dart';
 import '../../datatable/datatable_last_transaction.dart';
+import 'package:cobaflutterpfm/view/transaction.dart';
 
 class ActivityBox extends StatefulWidget {
   const ActivityBox({Key? key}) : super(key: key);
@@ -26,47 +27,47 @@ class _ActivityBoxState extends State<ActivityBox> {
   TextEditingController _textFieldController = TextEditingController();
   String _dummyData = ""; // Data dummy yang akan ditampilkan
 
-  void _showDetailModal() {
-    showDialog(
-      context: context,
-      barrierDismissible:
-          false, // Modal hanya dapat ditutup dengan tombol "Tutup"
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Detail'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: _textFieldController,
-                decoration: InputDecoration(labelText: 'Input Data'),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    _dummyData = _textFieldController.text;
-                  });
-                  Navigator.of(context).pop();
-                },
-                child: Text('Simpan'),
-              ),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Tutup'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // void _showDetailModal() {
+  //   showDialog(
+  //     context: context,
+  //     barrierDismissible:
+  //         false, // Modal hanya dapat ditutup dengan tombol "Tutup"
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text('Detail'),
+  //         content: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             TextField(
+  //               controller: _textFieldController,
+  //               decoration: InputDecoration(labelText: 'Input Data'),
+  //             ),
+  //             const SizedBox(
+  //               height: 10,
+  //             ),
+  //             ElevatedButton(
+  //               onPressed: () {
+  //                 setState(() {
+  //                   _dummyData = _textFieldController.text;
+  //                 });
+  //                 Navigator.of(context).pop();
+  //               },
+  //               child: Text('Simpan'),
+  //             ),
+  //           ],
+  //         ),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: Text('Tutup'),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   void dispose() {
@@ -128,9 +129,7 @@ class _ActivityBoxState extends State<ActivityBox> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-                _showDetailModal();
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 primary: Colors.blue,
               ),

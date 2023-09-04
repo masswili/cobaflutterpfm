@@ -5,6 +5,7 @@ import 'package:cobaflutterpfm/view/Launcher_view.dart';
 import 'package:cobaflutterpfm/view/login_view.dart';
 import 'package:cobaflutterpfm/view/main_view.dart';
 import 'package:cobaflutterpfm/view/register_view.dart';
+import 'package:cobaflutterpfm/view/transaction.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -20,6 +21,8 @@ class RouteGenerator {
         return SlideUpRoute(page: const RegisterPage());
       case '/home':
         return FadeRoute(page: const MainView());
+      case '/transaksi':
+        return SlideRightRoute(page: const Transactionpage());
       default:
         return _errorRoute();
     }
